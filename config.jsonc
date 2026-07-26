@@ -1,0 +1,43 @@
+{
+  "$schema": "https://github.com",
+  "logo": {
+    "source": "arch", 
+    "color": {
+      "1": "38;2;23;147;209", 
+      "2": "38;2;0;85;165"
+    },
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "title": "38;2;23;147;209"
+    }
+  },
+  "modules": [
+    "title",
+    "break",
+    { "type": "os", "key": "\u001b[38;2;23;147;209mos  \u001b[0m" },
+    { "type": "kernel", "key": "\u001b[38;2;23;147;209mker \u001b[0m" },
+    { "type": "uptime", "key": "\u001b[38;2;23;147;209mupt \u001b[0m" },
+    { "type": "packages", "key": "\u001b[38;2;23;147;209mpkg \u001b[0m" },
+    "break",
+    { "type": "wm", "key": "\u001b[38;2;23;147;209mwm  \u001b[0m" },
+    { "type": "shell", "key": "\u001b[38;2;23;147;209msh  \u001b[0m" },
+    { "type": "terminal", "key": "\u001b[38;2;23;147;209mtrm \u001b[0m" },
+    { "type": "display", "key": "\u001b[38;2;23;147;209mres \u001b[0m" },
+    "break",
+    { "type": "cpu", "key": "\u001b[38;2;23;147;209mcpu \u001b[0m" },
+    { "type": "gpu", "key": "\u001b[38;2;23;147;209mgpu \u001b[0m" },
+    { "type": "memory", "key": "\u001b[38;2;23;147;209mram \u001b[0m" },
+    { 
+      "type": "disk", 
+      "key": "\u001b[38;2;23;147;209msys \u001b[0m", 
+      "folders": "/home" 
+    }
+  ]
+}

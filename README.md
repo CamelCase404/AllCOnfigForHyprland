@@ -1,13 +1,3 @@
--- For Noctalia Color templates
-require("noctalia").apply_theme()   
-hl.window_rule({
-    name    = "vscode-blur",
-    match   = { class = "^(code|code-url-handler)$" },
-    opacity = "1 override 0.85 override", -- Прозрачность автоматически вызовет блюр композитора
-})
--- Идеальное решение для дока Noctalia Shell v5
--- Официальное исправление блюра для Noctalia v5
--- Единое оптимизированное правило для всех слоев Noctalia v5
 hl.layer_rule({
     name         = "noctalia-shell-blur-fix",
     -- Используем точный групповой regex для отлова всех подслоев рендеринга Noctalia v5

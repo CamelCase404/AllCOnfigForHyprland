@@ -20,7 +20,7 @@ elif [ "$FILE_EXT" = ".py" ] || [ "$FILE_EXT" = "py" ]; then
     echo "==== Running Python ===="
     python3 "$FILE_PATH"
 
-# 3. НОВОЕ: Если это HTML (фронтенд)
+# 3. Если это HTML (фронтенд)
 elif [ "$FILE_EXT" = ".html" ] || [ "$FILE_EXT" = "html" ]; then
     echo "==== Opening HTML in Browser ===="
     xdg-open "$FILE_PATH"
@@ -28,8 +28,33 @@ elif [ "$FILE_EXT" = ".html" ] || [ "$FILE_EXT" = "html" ]; then
 # 4. Для всех остальных случаев (C# / ASP.NET Core)
 else
     echo "==== Running C# / ASP.NET ===="
-    # Если запуск произошел из файла внутри проекта, но dotnet run нужно вызвать в корне
-    if [ -n "$WORKSPACE_DIR" ] && [ "$WORKSPACE_DIR" != "undefined" ]; then
+    
+    TARGET_DIR="$FILE_DIR"
+    CSPROJ_FILE=""
+
+    # Ищем .csproj файл, поднимаясь вверх от папки файла до корня воркспейса
+    while [ "$TARGET_DIR" != "/" ] && [ -n "$TARGET_DIR" ]; do
+        # Ищем первый попавшийся .csproj в текущей папке TARGET_DIR
+        CSPROJ_FILE=$(find "$TARGET_DIR" -maxdepth 1 -name "*.csproj" -print -quit 2>/dev/null)
+        
+        if [ -n "$CSPROJ_FILE" ]; then
+            break
+        fi
+        
+        # Если дошли до корня воркспейса и ничего не нашли — останавливаемся
+        if [ "$TARGET_DIR" = "$WORKSPACE_DIR" ]; then
+            break
+        fi
+        
+        # Поднимаемся на уровень выше
+        TARGET_DIR=$(dirname "$TARGET_DIR")
+    done
+
+    # Если нашли проект, запускаем его. Если нет — пробуем запуститься из WORKSPACE_DIR
+    if [ -n "$CSPROJ_FILE" ]; then
+        echo "Found project: $CSPROJ_FILE"
+        dotnet run --project "$CSPROJ_FILE"
+    elif [ -n "$WORKSPACE_DIR" ] && [ "$WORKSPACE_DIR" != "undefined" ]; then
         cd "$WORKSPACE_DIR" && dotnet run
     else
         cd "$FILE_DIR" && dotnet run

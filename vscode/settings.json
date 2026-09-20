@@ -1,0 +1,37 @@
+{
+    "workbench.colorTheme": "One Dark Pro Flat",
+    "workbench.iconTheme": "bearded-icons",
+    "vscode_custom_css.imports": [
+        "file:///home/camelcase/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.8/dist/updateHandler.js"
+    ],
+    "animations.Enabled": true,
+    "animations.enable-animations": true,
+    "animations.duration": 220,
+    "animations.easing-function": "cubic-bezier(0.25, 1, 0.5, 1)",
+    "animations.custom-css": "",
+    "editor.textRenderLightWeight": false,
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.formatOnSave": true,
+    "editor.quickSuggestionsDelay": 0,
+    "python.analysis.autoImportCompletions": true,
+    "dotnet.completion.showCompletionItems": "all",
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'JetBrains Mono', monospace",
+    "editor.fontWeight": "500",
+    "editor.fontLigatures": true,
+    "animations.CursorAnimationOptions": {
+        "Color": "#4f34eb",
+        "TrailLength": 6
+    },
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#4f34eb"
+    },
+    "editor.renderLineHighlight": "none",
+    "workbench.startupEditor": "none",
+    "vscord.app.name": "Visual Studio Code",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "explorer.confirmDelete": false,
+    "editor.cursorBlinking": "expand",
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
+}

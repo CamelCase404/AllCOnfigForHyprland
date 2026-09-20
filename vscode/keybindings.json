@@ -1,0 +1,23 @@
+[
+    {
+        "key": "ctrl+space",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Run Active File",
+        "when": "editorTextFocus && !inDebugRepl"
+    },
+    {
+        "key": "f5",
+        "command": "workbench.action.debug.start",
+        "when": "editorTextFocus && !inDebugRepl"
+    },
+    {
+        "key": "shift+r",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "f2",
+        "command": "-editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    }
+]

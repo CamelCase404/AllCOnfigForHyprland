@@ -25,7 +25,7 @@
         "enabled": true,
     },
     "accessible_mode": false,
-    "theme": "One Dark Pro Glass",
+    "theme": "Lucent Blur Flat [Light]",
     "icon_theme": "Bearded Icon Theme",
 
     "buffer_font_family": "JetBrains Mono",
@@ -73,6 +73,19 @@
                     "arguments": ["-", "-q"],
                 },
             },
+        },
+    },
+    "experimental.theme_overrides": {
+        // Включаем размытие фона окон
+        "background.appearance": "blurred",
+
+        // Перекрашиваем синтаксис (заработает для любой выбранной темы!)
+        "syntax": {
+            "keyword": "#c792ea", // Фиолетовый цвет для if, else, return, loop
+            "keyword.control": "#c792ea",
+            "function": "#82aaff", // Голубой цвет для функций
+            "string": "#c3e88d", // Салатовый для строк в кавычках
+            "type": "#ffcb6b", // Желтый для классов и типов
         },
     },
 }

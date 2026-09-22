@@ -24,7 +24,7 @@
     "cursor_animation": {
         "enabled": true,
     },
-    "accessible_mode": true,
+    "accessible_mode": false,
     "theme": "One Dark Pro Glass",
     "icon_theme": "Bearded Icon Theme",
 

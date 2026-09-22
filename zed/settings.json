@@ -1,0 +1,78 @@
+{
+    "disable_ai": true,
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false,
+        "anthropic_retention": false,
+    },
+    "debugger": {
+        "stepping_granularity": "line",
+    },
+    "project_panel": {
+        "folder_indicator": "both",
+        "file_icons": true,
+        "title_tooltip_delay": {
+            "custom": 1500,
+        },
+        "default_width": 247.0,
+        "dock": "left",
+    },
+    "agent_ui_font_size": 16.0,
+    "ui_font_weight": 450.0,
+    "ui_font_family": "JetBrains Mono",
+    "hide_mouse": "on_typing_and_action",
+    "cursor_animation": {
+        "enabled": true,
+    },
+    "accessible_mode": true,
+    "theme": "One Dark Pro Glass",
+    "icon_theme": "Bearded Icon Theme",
+
+    "buffer_font_family": "JetBrains Mono",
+    "buffer_font_size": 16,
+    "buffer_font_weight": 500.0,
+    "enable_font_ligatures": true,
+
+    "format_on_save": "on",
+    "show_line_highlights": "none",
+    "autosave": "off",
+
+    "cursor_blink": true,
+    "cursor_shape": "bar",
+
+    "format_on_save": "on",
+    "tab_size": 4,
+    "hard_tabs": false,
+    "auto_closing_pairs": {
+        "brackets": true,
+        "quotes": true,
+    },
+    "autofit_brackets": true,
+    "remove_trailing_whitespace": true,
+    "ensure_final_newline": true,
+
+    "languages": {
+        "C#": {
+            "tab_size": 4,
+            "format_on_save": "on",
+        },
+        "C++": {
+            "tab_size": 4,
+            "formatter": {
+                "external": {
+                    "command": "clang-format",
+                    "arguments": ["-style=file"],
+                },
+            },
+        },
+        "Python": {
+            "tab_size": 4,
+            "formatter": {
+                "external": {
+                    "command": "black",
+                    "arguments": ["-", "-q"],
+                },
+            },
+        },
+    },
+}

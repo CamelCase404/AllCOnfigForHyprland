@@ -1,0 +1,15 @@
+[
+  {
+    "label": "Run Active File",
+    "command": "/home/camelcase/bin/vsc-run.sh",
+    "args": [
+      "$ZED_FILE",
+      "$ZED_WORKTREE_ROOT"
+    ],
+    "shell": "system",
+    "show": "always",
+    "focus": true,
+    "capture_output": false,
+    "reevaluate_context": true
+  }
+]

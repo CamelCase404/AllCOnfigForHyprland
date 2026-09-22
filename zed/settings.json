@@ -75,17 +75,18 @@
             },
         },
     },
-    "experimental.theme_overrides": {
-        // Включаем размытие фона окон
-        "background.appearance": "blurred",
+    "theme_overrides": {
+        "Lucent Blur Flat [Light]": {
+            // Полностью убираем фон активной строки (делаем прозрачным)
+            "editor.active_line.background": "#00000000",
 
-        // Перекрашиваем синтаксис (заработает для любой выбранной темы!)
-        "syntax": {
-            "keyword": "#c792ea", // Фиолетовый цвет для if, else, return, loop
-            "keyword.control": "#c792ea",
-            "function": "#82aaff", // Голубой цвет для функций
-            "string": "#c3e88d", // Салатовый для строк в кавычках
-            "type": "#ffcb6b", // Желтый для классов и типов
+            // Правильная настройка выделения текста через массив игроков
+            "players": [
+                {
+                    "cursor": "#6a5de3",
+                    "selection": "#6a5dff10",
+                },
+            ],
         },
     },
 }

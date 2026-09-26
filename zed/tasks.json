@@ -11,10 +11,10 @@
     },
     {
         "label": "Activate Python Venv Terminal",
-        "command": "bash",
+        "command": "fish",
         "args": [
             "-c",
-            "if [ -d \"$ZED_WORKTREE_ROOT/.venv\" ]; then cd \"$ZED_WORKTREE_ROOT\" && bash --rcfile <(echo \"source ~/.bashrc; source .venv/bin/activate\"); else cd \"$ZED_WORKTREE_ROOT\" && python3 -m venv .venv && bash --rcfile <(echo \"source ~/.bashrc; source .venv/bin/activate\"); fi",
+            "cd \"$ZED_WORKTREE_ROOT\"; if not test -d .venv; echo '==== Creating Python Venv ===='; python3 -m venv .venv; end; bash --init-file .venv/bin/activate",
         ],
         "shell": "system",
         "show": "always",

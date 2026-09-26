@@ -18,10 +18,30 @@ if [ "$FILE_EXT" = ".cpp" ]; then
     echo "==== Compiling & Running C++ ===="
     g++ -O3 "$FILE_PATH" -o "$FILE_DIR/$FILE_NAME_NO_EXT" && "$FILE_DIR/$FILE_NAME_NO_EXT"
 
-# 4. Если это Python
+# 4. Если это Python (Автоматический venv)
 elif [ "$FILE_EXT" = ".py" ]; then
-    echo "==== Running Python ===="
-    python3 "$FILE_PATH"
+    echo "==== Python Environment Setup ===="
+    
+    # Определяем, где создавать .venv (в корне воркспейса или в папке файла)
+    if [ -n "$WORKSPACE_DIR" ] && [ "$WORKSPACE_DIR" != "undefined" ]; then
+        ENV_DIR="$WORKSPACE_DIR/.venv"
+    else
+        ENV_DIR="$FILE_DIR/.venv"
+    fi
+
+    # Если venv не существует — создаем его
+    if [ ! -d "$ENV_DIR" ]; then
+        echo "Creating virtual environment in: $ENV_DIR..."
+        python3 -m venv "$ENV_DIR"
+        
+        # Обновляем pip внутри нового venv
+        echo "Updating pip..."
+        "$ENV_DIR/bin/pip" install --upgrade pip
+    fi
+
+    echo "==== Running Python (Venv Active) ===="
+    # Запускаем файл напрямую через python из venv (это исключает необходимость делать source activate)
+    "$ENV_DIR/bin/python3" "$FILE_PATH"
 
 # 5. Если это HTML (фронтенд)
 elif [ "$FILE_EXT" = ".html" ]; then

@@ -9,4 +9,15 @@
         "capture_output": false,
         "reevaluate_context": true,
     },
+    {
+        "label": "Activate Python Venv Terminal",
+        "command": "bash",
+        "args": [
+            "-c",
+            "if [ -d \"$ZED_WORKTREE_ROOT/.venv\" ]; then cd \"$ZED_WORKTREE_ROOT\" && bash --rcfile <(echo \"source ~/.bashrc; source .venv/bin/activate\"); else cd \"$ZED_WORKTREE_ROOT\" && python3 -m venv .venv && bash --rcfile <(echo \"source ~/.bashrc; source .venv/bin/activate\"); fi",
+        ],
+        "shell": "system",
+        "show": "always",
+        "focus": true,
+    },
 ]

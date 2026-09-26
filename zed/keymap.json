@@ -19,6 +19,11 @@
         "context": "Editor",
         "bindings": {
             "shift-r": "editor::Rename",
+            // Запуск интерактивного терминала с активированным venv
+            "ctrl-alt-v": [
+                "task::Spawn",
+                { "task_name": "Activate Python Venv Terminal" },
+            ],
         },
     },
     {

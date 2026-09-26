@@ -1,4 +1,5 @@
 {
+    "cli_default_open_behavior": "existing_window",
     "disable_ai": true,
     "telemetry": {
         "diagnostics": false,
@@ -84,7 +85,7 @@
             "players": [
                 {
                     "cursor": "#6a5de3",
-                    "selection": "#6a5dff20",
+                    "selection": "#0A241310",
                 },
             ],
         },

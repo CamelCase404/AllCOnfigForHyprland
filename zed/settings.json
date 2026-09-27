@@ -37,20 +37,25 @@
     "format_on_save": "on",
     "show_line_highlights": "none",
     "autosave": "off",
-
     "cursor_blink": true,
     "cursor_shape": "bar",
-
-    "format_on_save": "on",
     "tab_size": 4,
     "hard_tabs": false,
-    "auto_closing_pairs": {
-        "brackets": true,
-        "quotes": true,
-    },
     "autofit_brackets": true,
     "remove_trailing_whitespace": true,
     "ensure_final_newline": true,
+    "show_whitespaces": "selection",
+    "bracket_pair_colorization": {
+        "enabled": true,
+    },
+    "auto_closing_pairs": {
+        "\"": "\"",
+        "'": "'",
+        "(": ")",
+        "[": "]",
+        "{": "}",
+        "<": ">",
+    },
 
     "languages": {
         "C#": {
@@ -59,13 +64,17 @@
         },
         "C++": {
             "tab_size": 4,
+            "format_on_save": "on",
             "formatter": {
                 "external": {
                     "command": "clang-format",
-                    "arguments": ["-style=file"],
+                    "arguments": [
+                        "-style={BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4}",
+                    ],
                 },
             },
         },
+
         "Python": {
             "tab_size": 4,
             "formatter": {
@@ -78,10 +87,7 @@
     },
     "theme_overrides": {
         "Lucent Blur Flat [Light]": {
-            // Полностью убираем фон активной строки (делаем прозрачным)
             "editor.active_line.background": "#00000000",
-
-            // Правильная настройка выделения текста через массив игроков
             "players": [
                 {
                     "cursor": "#6a5de3",

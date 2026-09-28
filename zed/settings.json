@@ -85,6 +85,12 @@
             },
         },
     },
+    "dap": {
+        "CodeLLDB": {
+            "binary": "/usr/bin/lldb-dap",
+            "args": [],
+        },
+    },
     "theme_overrides": {
         "Lucent Blur Flat [Light]": {
             "editor.active_line.background": "#00000000",

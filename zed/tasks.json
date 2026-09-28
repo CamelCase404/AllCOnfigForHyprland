@@ -14,7 +14,7 @@
         "command": "fish",
         "args": [
             "-c",
-            "cd \"$ZED_WORKTREE_ROOT\"; if not test -d .venv; echo '==== Creating Python Venv ===='; python3 -m venv .venv; end; bash --init-file .venv/bin/activate",
+            "cd \"$ZED_WORKTREE_ROOT\"; if not test -d .venv; echo '==== Creating Python Venv ===='; python3 -m venv .venv; end; fish -i -C 'source .venv/bin/activate.fish'",
         ],
         "shell": "system",
         "show": "always",

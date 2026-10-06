@@ -1,8 +1,8 @@
 hl.monitor({
-    output   = "HDMI-A-1",
-    mode     = "1920x1080@75",
-    position = "0x0",
-    scale    = "1",
+  output = "",
+  mode = "preferred",
+  position = "auto",
+  scale = 1.0,
 })
 hl.config({
     input = {
@@ -16,7 +16,7 @@ hl.config({
 
         follow_mouse = 1,
 
-        sensitivity = -0.7, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0.3, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {
             natural_scroll = false,

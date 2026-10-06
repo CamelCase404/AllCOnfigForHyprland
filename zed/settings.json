@@ -93,11 +93,46 @@
     },
     "theme_overrides": {
         "Lucent Blur Flat [Light]": {
+            "search.match_background": "#3a445460",
+            "editor.document_highlight.read_background": "#ffffff15", // Тонкая белая подсветка с прозрачностью 15%
+            "editor.document_highlight.write_background": "#ffffff15",
+            "background": "#00000045",
+            "title_bar.background": "#00000045",
+            "status_bar.background": "#00000045",
+            "editor.background": "#00000000",
+            "panel.background": "#00000000",
+            "border": "#00000000",
             "editor.active_line.background": "#00000000",
+
+            "tab_bar.background": "#00000001",
+            "tab.active_background": "#00000001",
+            "tab.inactive_background": "#00000001",
+
+            "elevated_surface.background": "#00000000",
+            "element.background": "#00000000",
+            "element.hover": "#ffffff10",
+            "element.active": "#ffffff18",
+            "element.selected": "#ffffff15",
+            "ghost_element.hover": "#ffffff10",
+            "ghost_element.active": "#ffffff18",
+            "ghost_element.selected": "#ffffff15",
+
+            "panel.focused_border": "#00000000",
+
+            "text.accent": "#ffffff",
+
+            "terminal.ansi.cyan": "#ffffff",
+            "terminal.ansi.bright_cyan": "#ffffff",
+
+            "syntax": {
+                "comment": { "color": "#a1a1a1" },
+            },
+            "editor.line_number": "#ffffff80",
+            "editor.active_line_number": "#ffffff",
             "players": [
                 {
-                    "cursor": "#6a5de3",
-                    "selection": "#0A241310",
+                    "cursor": "#333333",
+                    "selection": "#00000018",
                 },
             ],
         },

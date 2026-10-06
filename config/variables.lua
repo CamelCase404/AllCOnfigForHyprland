@@ -6,4 +6,3 @@ hl.window_rule({
     match = { class = "^(kitty)$" },
     opacity = "0.6 override 0.5 override 0.6 override",
 })
-

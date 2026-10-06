@@ -32,7 +32,7 @@ decoration = {
         blur = {
             enabled           = true,
             size              = 5,
-            passes            = 2,
+            passes            = 3,
             new_optimizations = true,
             vibrancy          = 0.1696,
             xray              = true,  -- Просвечивание сквозь окна под прозрачными элементами
@@ -85,4 +85,3 @@ hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 8,  bezier = "wsB
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 8,  bezier = "wsBounce",     style = "slide" })
 -- Кривая (плавный старт, мягкое дотягивание в конце)
 hl.curve("fluentIn", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.0} } })
-

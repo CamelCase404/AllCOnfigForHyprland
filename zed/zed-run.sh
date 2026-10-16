@@ -43,12 +43,51 @@ elif [ "$FILE_EXT" = ".py" ]; then
     # Запускаем файл напрямую через python из venv (это исключает необходимость делать source activate)
     "$ENV_DIR/bin/python3" "$FILE_PATH"
 
-# 5. Если это HTML (фронтенд)
-elif [ "$FILE_EXT" = ".html" ]; then
-    echo "==== Opening HTML in Browser ===="
-    xdg-open "$FILE_PATH"
+# 5. Если это фронтенд (HTML, CSS, JS)
+elif [ "$FILE_EXT" = ".html" ] || [ "$FILE_EXT" = ".css" ] || [ "$FILE_EXT" = ".js" ]; then
+    echo "==== Opening Front-end Resource ===="
+    
+    # Если запущен CSS или JS, пробуем найти связанный HTML в той же папке
+    if [ "$FILE_EXT" != ".html" ]; then
+        # Ищем index.html или любой первый попавшийся html-файл в папке
+        HTML_TARGET=$(find "$FILE_DIR" -maxdepth 1 -name "index.html" -print -quit)
+        [ -z "$HTML_TARGET" ] && HTML_TARGET=$(find "$FILE_DIR" -maxdepth 1 -name "*.html" -print -quit)
+        
+        if [ -n "$HTML_TARGET" ]; then
+            echo "Found associated HTML: $(basename "$HTML_TARGET")"
+            xdg-open "$HTML_TARGET"
+        else
+            echo "No HTML file found in directory. Opening current file..."
+            xdg-open "$FILE_PATH"
+        fi
+    else
+        # Если это сам HTML, просто открываем его
+        xdg-open "$FILE_PATH"
+    fi
 
-# 6. Для всех остальных случаев (C# / ASP.NET Core)
+# 6. Если это Go (Golang)
+elif [ "$FILE_EXT" = ".go" ]; then
+    echo "==== Running Go Application ===="
+    
+    # Проверяем, установлен ли Go в системе
+    if ! command -v go &> /dev/null; then
+        echo "ERROR: Go is not installed or not in PATH!"
+        echo "Please follow the instructions below to install Go."
+        exit 1
+    fi
+
+    # Переходим в папку с файлом
+    cd "$FILE_DIR"
+    
+    # Если в папке (или выше) есть go.mod, запускаем через go run .
+    # В противном случае запускаем конкретный файл
+    if [ -f "go.mod" ]; then
+        go run .
+    else
+        go run "$FILE_PATH"
+    fi
+
+# 7. Для всех остальных случаев (C# / ASP.NET Core)
 else
     echo "==== Running C# / ASP.NET ===="
     
@@ -84,7 +123,7 @@ else
     fi
 fi
 
-# 7. Считаем и выводим время работы
+# 8. Считаем и выводим время работы
 exit_code=$?
 end_time=$(date +%s.%N)
 total_time=$(echo "$end_time - $start_time" | bc 2>/dev/null || awk "BEGIN {print $end_time - $start_time}")

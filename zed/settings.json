@@ -17,6 +17,7 @@
         },
         "default_width": 247.0,
         "dock": "left",
+        "sticky_scroll": false,
     },
     "agent_ui_font_size": 16.0,
     "ui_font_weight": 450.0,
@@ -32,30 +33,14 @@
     "buffer_font_family": "JetBrains Mono",
     "buffer_font_size": 16,
     "buffer_font_weight": 500.0,
-    "enable_font_ligatures": true,
 
     "format_on_save": "on",
-    "show_line_highlights": "none",
     "autosave": "off",
     "cursor_blink": true,
     "cursor_shape": "bar",
     "tab_size": 4,
     "hard_tabs": false,
-    "autofit_brackets": true,
-    "remove_trailing_whitespace": true,
-    "ensure_final_newline": true,
     "show_whitespaces": "selection",
-    "bracket_pair_colorization": {
-        "enabled": true,
-    },
-    "auto_closing_pairs": {
-        "\"": "\"",
-        "'": "'",
-        "(": ")",
-        "[": "]",
-        "{": "}",
-        "<": ">",
-    },
 
     "languages": {
         "C#": {
@@ -74,9 +59,9 @@
                 },
             },
         },
-
         "Python": {
             "tab_size": 4,
+            "language_servers": ["basedpyright", "ruff"],
             "formatter": {
                 "external": {
                     "command": "black",
@@ -94,7 +79,8 @@
     "theme_overrides": {
         "Lucent Blur Flat [Light]": {
             "search.match_background": "#3a445460",
-            "editor.document_highlight.read_background": "#ffffff15", // Тонкая белая подсветка с прозрачностью 15%
+            "title_bar.inactive_background": "#00000045",
+            "editor.document_highlight.read_background": "#ffffff15",
             "editor.document_highlight.write_background": "#ffffff15",
             "background": "#00000045",
             "title_bar.background": "#00000045",
@@ -135,6 +121,16 @@
                     "selection": "#00000018",
                 },
             ],
+        },
+    },
+
+    "lsp": {
+        "basedpyright": {
+            "settings": {
+                "python": {
+                    "pythonPath": ".venv/bin/python",
+                },
+            },
         },
     },
 }
